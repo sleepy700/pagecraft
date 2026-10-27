@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+
+  --color-paper: #f7f2e9;
+  --color-paper-deep: #efe7d6;
+  --color-paper-dark: #e6dac2;
+  --color-ink: #211c14;
+  --color-ink-2: #5c5340;
+  --color-ink-3: #8a7f66;
+  --color-ember: #b0492a;
+  --color-ember-deep: #8c3719;
+  --color-moss: #5f7048;
+  --color-forest: #2f4032;
+  --color-gold: #c8973f;
+
+  --shadow-book: 0 1px 2px rgb(33 28 20 / 0.1), 0 14px 34px -10px rgb(33 28 20 / 0.35);
+  --shadow-book-hover: 0 2px 4px rgb(33 28 20 / 0.12), 0 26px 54px -14px rgb(33 28 20 / 0.45);
+  --shadow-card: 0 1px 1px rgb(33 28 20 / 0.05), 0 10px 30px -14px rgb(33 28 20 / 0.22);
+  --shadow-panel: 0 24px 70px -24px rgb(33 28 20 / 0.35);
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-floaty: floaty 7s ease-in-out infinite;
+  --animate-floaty-slow: floaty 10s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes floaty {
+    0%,
+    100% {
+      transform: translateY(0) rotate(var(--float-rotate, 0deg));
+    }
+    50% {
+      transform: translateY(-12px) rotate(var(--float-rotate, 0deg));
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: var(--color-paper);
+}
+
+/* Subtle paper grain over large surfaces */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Book cover interactions */
+.book-3d {
+  perspective: 1200px;
+}
+.book-3d .book-tilt {
+  transition:
+    transform 0.6s cubic-bezier(0.22, 0.9, 0.24, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 0.9, 0.24, 1);
+  transform-style: preserve-3d;
+}
+.book-3d:hover .book-tilt {
+  transform: translateY(-8px) rotateY(-9deg) rotateZ(-1.2deg);
+}
+
+/* Ruled paper background for the "inside spread" view */
+.ruled-paper {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 27px,
+    rgb(90 82 64 / 0.22) 27px,
+    rgb(90 82 64 / 0.22) 28px
+  );
+}
+
+/* Nice scrollbars for horizontal shelves */
+.shelf-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(33 28 20 / 0.25) transparent;
+}
+.shelf-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.shelf-scroll::-webkit-scrollbar-thumb {
+  background: rgb(33 28 20 / 0.25);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
