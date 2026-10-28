@@ -51,5 +51,7 @@ access to Google Fonts. `/api/health` provides a JSON health check.
 
 The optional PostgreSQL helpers in `src/db` are not used by the storefront.
 `DATABASE_URL` is required only when using those database helpers. The optional
-Drizzle development tooling currently has four moderate npm audit findings in
-its legacy esbuild dependency chain; the production dependency audit is clean.
+Drizzle tooling uses an npm override for its legacy esbuild dependency to avoid
+known security vulnerabilities. Both full and production dependency audits are
+clean. After updating dependencies, run `npm audit` and verify the optional
+schema export with `npx drizzle-kit export --config=drizzle.config.json`.
