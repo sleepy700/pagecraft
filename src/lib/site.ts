@@ -5,4 +5,4 @@ export const SITE_URL = configured
   ? configured.replace(/\/$/, "")
   : vercelHost
     ? `https://${vercelHost}`
-    : "https://pagecraft.vercel.app";
+    : "https://pagecraft-9r75.vercel.app";

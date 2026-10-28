@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ProductAccordions } from "@/components/product-accordions";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/faq" },
   title: "How buying works — FAQ",
   description:
     "How to buy PageCraft Kindle eBooks and paperbacks worldwide through Amazon, including local stores, formats, delivery and returns.",

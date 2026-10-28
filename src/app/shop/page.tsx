@@ -6,6 +6,7 @@ import { ShopTools, type ShopFiltersState } from "@/components/shop-tools";
 import { getCollections, getShopProducts } from "@/db/queries";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/shop" },
   title: "Shop all books",
   description:
     "Browse the PageCraft catalog — AI toolkits, coloring books, activity books and practical guides by independent author Mantu Ji, delivered safely via Amazon.",
