@@ -38,7 +38,7 @@ export function BuyPanel({
       <div className="flex flex-wrap items-baseline gap-3">
         <p className="font-display text-[34px] font-semibold leading-none">{formatMoney(price)}</p>
         {onSale && <p className="text-lg text-ink-3 line-through">{formatMoney(compareAt)}</p>}
-        <span className="text-xs text-ink-2">{editionLabel ?? "Amazon edition"} · US list price</span>
+        <span className="text-xs text-ink-2">{editionLabel ?? "Amazon edition"} · Reference US price</span>
       </div>
 
       <a
@@ -67,7 +67,7 @@ export function BuyPanel({
         {(digital
           ? [
               "Secure checkout on your local Amazon store",
-              "Instant delivery to Kindle and free Kindle apps",
+              "Kindle access subject to Amazon availability",
               "Local currency and final price shown by Amazon",
             ]
           : [
@@ -82,6 +82,8 @@ export function BuyPanel({
           </p>
         ))}
       </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-ink-2">Prices are manually maintained references, not live quotes. Check Amazon for the current price, taxes and availability.</p>
 
       <p className="mt-4 flex items-center gap-2 text-xs text-ink-2">
         <span className="h-2 w-2 rounded-full bg-moss" />

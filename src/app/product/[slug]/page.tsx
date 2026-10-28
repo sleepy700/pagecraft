@@ -59,31 +59,7 @@ export default async function ProductPage({ params }: Props) {
     description: product.description[0],
     ...(asin ? { identifier: { "@type": "PropertyValue", propertyID: "ASIN", value: asin } } : {}),
     ...(product.coverImage ? { image: product.coverImage } : {}),
-    ...(product.amazonUrl
-      ? {
-          offers: [
-            {
-              "@type": "Offer",
-              url: product.amazonUrl,
-              price: (product.price / 100).toFixed(2),
-              priceCurrency: "USD",
-              availability: "https://schema.org/InStock",
-            },
-            ...(product.amazonUrlPrint && product.printPrice != null
-              ? [
-                  {
-                    "@type": "Offer",
-                    url: product.amazonUrlPrint,
-                    price: (product.printPrice / 100).toFixed(2),
-                    priceCurrency: "USD",
-                    availability: "https://schema.org/InStock",
-                    itemCondition: "https://schema.org/NewCondition",
-                  },
-                ]
-              : []),
-          ],
-        }
-      : {}),
+
   };
 
   return (
@@ -162,7 +138,7 @@ export default async function ProductPage({ params }: Props) {
           <div className="mt-6 grid grid-cols-3 gap-3">
             {(isEbook
               ? [
-                  { icon: Zap, label: "Instant Kindle delivery" },
+                  { icon: Zap, label: "Kindle delivery via Amazon" },
                   { icon: ShieldCheck, label: "Secure Amazon checkout" },
                   { icon: BookOpen, label: "Read on any device" },
                 ]
@@ -237,11 +213,11 @@ export default async function ProductPage({ params }: Props) {
                         title: "Shipping & returns",
                         body: (
                           <>
-                            Every copy is printed fresh when you order — please allow 3–5 business days
-                            for printing and delivery within the U.S. Free tracked shipping on orders
-                            over $35; a flat $4.95 below that. Not right for you? Return it within 30
-                            days for a full refund, no questions and no restocking fees.{" "}
-                            <Link href="/faq#shipping" className="font-semibold text-ember underline-offset-2 hover:underline">
+                            Delivery estimates, shipping charges and return eligibility are set by the
+                            Amazon marketplace and seller for your address and edition. Check the
+                            listing and checkout before purchasing; PageCraft does not promise free
+                            shipping, fixed delivery dates or a specific refund window.{" "}
+                            <Link href="/faq#refunds" className="font-semibold text-ember underline-offset-2 hover:underline">
                               Read the full policy
                             </Link>
                             .

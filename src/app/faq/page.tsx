@@ -39,9 +39,9 @@ export default function FaqPage() {
           </p>
           <ul className="grid gap-3 sm:grid-cols-3">
             {[
-              ["1 · Choose a book", "Open any title to see its official cover, description, format and current US price"],
+              ["1 · Choose a book", "Open any title to see its official cover, description, format and reference US price"],
               ["2 · Tap Buy on Amazon", "Our smart link opens that exact book on an appropriate local Amazon store"],
-              ["3 · Amazon fulfills it", "Kindle books arrive instantly; print delivery options appear at checkout"],
+              ["3 · Amazon fulfills it", "Amazon shows Kindle availability and print delivery options at checkout"],
             ].map(([a, b]) => (
               <li key={a} className="rounded-xl border border-ink/10 bg-paper-deep/50 p-4">
                 <p className="font-display text-[15px] font-semibold">{a}</p>
@@ -122,7 +122,7 @@ export default function FaqPage() {
               },
               {
                 title: "Are the prices the same in every country?",
-                body: "Not always. Amazon converts or sets marketplace prices by currency and may add local taxes. PageCraft shows the current main Amazon.com list price for reference; the local Amazon page opened by the Buy button shows the final price for your account and country.",
+                body: "Not always. Amazon converts or sets marketplace prices by currency and may add local taxes. PageCraft shows the manually maintained reference US price for reference; the local Amazon page opened by the Buy button shows the final price for your account and country.",
               },
               {
                 title: "Are all titles available in print?",

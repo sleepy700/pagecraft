@@ -13,7 +13,7 @@ const HELP_LINKS = [
   { href: "/faq#buying", label: "How buying works" },
   { href: "/faq#refunds", label: "Returns & support" },
   { href: "/faq#faq", label: "FAQ" },
-  { href: "/shop", label: "Find a book" },
+  { href: "/policies", label: "Privacy & site policies" },
 ];
 
 const COMPANY_LINKS = [
@@ -61,16 +61,10 @@ export function SiteFooter() {
             © 2026 PageCraft — independent author site. Purchases are completed securely on
             Amazon.
           </p>
-          <div className="flex items-center gap-2">
-            {["VISA", "MC", "AMEX", "PAYPAL"].map((p) => (
-              <span
-                key={p}
-                className="rounded-[4px] border border-paper/20 px-2 py-1 text-[9px] font-bold tracking-[0.14em] text-paper/60"
-              >
-                {p}
-              </span>
-            ))}
-          </div>
+          <p className="max-w-sm text-xs leading-relaxed text-paper/60">
+            PageCraft is not Amazon. Prices are reference information; confirm current
+            price, availability, payment methods and returns on Amazon before buying.
+          </p>
         </div>
       </div>
     </footer>
