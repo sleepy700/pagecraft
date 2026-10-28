@@ -16,7 +16,11 @@ export default function AdminPage() {
 
   useEffect(() => {
     const saved = localStorage.getItem("admin-progress");
-    if (saved) setCurrentStep(Number(saved));
+    const frame = requestAnimationFrame(() => {
+      const step = Number(saved);
+      if (Number.isInteger(step) && step >= 0 && step <= 4) setCurrentStep(step);
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const saveProgress = (step: number) => {

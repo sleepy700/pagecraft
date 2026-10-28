@@ -30,3 +30,26 @@ public/
 3. Do not change any settings → press **Deploy**
 
 Done. Your site goes live worldwide at `your-repo.vercel.app`.
+
+## Local development and checks
+
+Requires Node.js 20.9 or newer.
+
+```sh
+npm ci
+npm run dev -- --hostname 0.0.0.0
+npm run lint
+npm run typecheck
+npm run build
+npm start -- --hostname 0.0.0.0
+```
+
+Application routes live in `src/app`, shared components in `src/components`,
+and the static book catalog in `src/lib/catalog.ts`. Images are served from
+`public/images`. Fonts are bundled via Fontsource, so builds do not require
+access to Google Fonts. `/api/health` provides a JSON health check.
+
+The optional PostgreSQL helpers in `src/db` are not used by the storefront.
+`DATABASE_URL` is required only when using those database helpers. The optional
+Drizzle development tooling currently has four moderate npm audit findings in
+its legacy esbuild dependency chain; the production dependency audit is clean.

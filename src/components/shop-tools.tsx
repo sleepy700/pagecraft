@@ -45,7 +45,11 @@ export function ShopTools({
   const [mobileOpen, setMobileOpen] = useState(false);
   const [q, setQ] = useState(current.q);
 
-  useEffect(() => setQ(current.q), [current.q]);
+  const [previousQuery, setPreviousQuery] = useState(current.q);
+  if (previousQuery !== current.q) {
+    setPreviousQuery(current.q);
+    setQ(current.q);
+  }
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
