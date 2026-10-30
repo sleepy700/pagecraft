@@ -10,6 +10,7 @@ const SHOP_LINKS = [
 ];
 
 const HELP_LINKS = [
+  { href: "/contact", label: "Contact us" },
   { href: "/faq#buying", label: "How buying works" },
   { href: "/faq#refunds", label: "Returns & support" },
   { href: "/faq#faq", label: "FAQ" },
