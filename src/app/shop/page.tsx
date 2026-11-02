@@ -1,3 +1,4 @@
+import { AdditionalBooks } from "@/components/additional-books";
 import type { Metadata } from "next";
 import { BookX, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
@@ -162,6 +163,7 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
           )}
         </div>
       </div>
+      <AdditionalBooks />
     </div>
   );
 }

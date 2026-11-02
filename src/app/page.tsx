@@ -1,3 +1,4 @@
+import { AdditionalBooks } from "@/components/additional-books";
 import { ArrowRight, Check, ExternalLink, Globe2, Palette, ShieldCheck, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -310,6 +311,7 @@ export default async function HomePage() {
           </div>
         </Reveal>
       </section>
+      <AdditionalBooks />
     </>
   );
 }
