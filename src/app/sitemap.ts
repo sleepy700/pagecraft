@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { DEMO_PRODUCTS } from "@/lib/catalog";
+import { locales } from "@/lib/languages";
 import { SITE_URL } from "@/lib/site";
 
 const BASE_URL = SITE_URL;
@@ -18,6 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/policies`, changeFrequency: "monthly", priority: 0.3 },
     { url: `${BASE_URL}/contact`, changeFrequency: "monthly", priority: 0.5 },
+    ...locales.map((locale) => ({
+      url: `${BASE_URL}/${locale}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+      alternates: { languages: Object.fromEntries(locales.map((code) => [code, `${BASE_URL}/${code}`])) },
+    })),
     ...bookPages,
   ];
 }

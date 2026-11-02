@@ -6,6 +6,7 @@ import "@fontsource-variable/inter";
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { LanguageSelector } from "@/components/language-selector";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        <LanguageSelector />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
