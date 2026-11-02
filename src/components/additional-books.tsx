@@ -2,6 +2,7 @@ import { BookOpen, ExternalLink } from "lucide-react";
 
 // Owner-supplied listings. Do not invent bibliographic or edition details.
 const listings = [
+  { asin: "B0HM23B88P", url: "https://www.amazon.com/dp/B0HM23B88P", note: "View book details, available editions and current pricing on Amazon." },
   { asin: "B0HPZJXQX1", url: "https://www.amazon.com/dp/B0HPZJXQX1", note: "Explore the two versions on Amazon." },
   { asin: "B0HP621DK5", url: "https://www.amazon.com/dp/B0HP621DK5", note: "Explore the three versions on Amazon." },
   { asin: "B0HPZ9SKTQ", url: "https://www.amazon.in/dp/B0HPZ9SKTQ", note: "View this book on Amazon India." },
